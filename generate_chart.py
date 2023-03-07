@@ -26,7 +26,7 @@ df = df.rename(columns={
 
 def str2list(d):
     if isinstance(d, str):
-        d = [float(f) for f in d.split(',')]
+        d = [float(f) for f in d.split('-')]
     return d
 
 def focal_length_and_speed_as_list(d):
@@ -86,7 +86,9 @@ fig.update_layout(
 
 filename = 'docs/index.html'
 
-html = fig.write_html(filename, include_plotlyjs='cdn')
+fig.write_html(filename, include_plotlyjs='cdn')
 
-with open(filename, 'r') as original: data = original.read()
-with open(filename, 'w') as modified: modified.write("<style>body {margin:0;}</style>\n" + data)
+with open(filename, 'r') as original:
+    data = original.read()
+with open(filename, 'w') as modified:
+    modified.write("<style>body {margin:0;}</style>\n" + data)
