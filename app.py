@@ -88,7 +88,7 @@ def RangeSliderLog(min, max, marks, id, mark_formatter = None):
 
 controls = dbc.Card([
     dbc.CardHeader([
-        html.H1('Sony FE Lens Chart', style={'font-size': '150%'}),
+        html.H1('Sony FE Lens Chart', style={'font-size': '150%', 'margin-bottom': '2px'}),
         html.Div('Size indicates weight'),
     ], style={'text-align': 'center'}),
     dbc.CardBody([
@@ -188,13 +188,13 @@ controls = dbc.Card([
     dbc.CardFooter([
         html.Div(['Data from ', html.A('phillipreeve.net', href="https://phillipreeve.net/blog/fe-list/", target='_blank')]),
         html.Div(['Feature requests, bugs: ', html.A('github', href='https://github.com/asgerlh/sony_fe_lens_chart', target='_blank')]),
-    ], style={'text-align': 'center'}),
+    ], style={'text-align': 'center', 'font-size': '80%'}),
 ])
 
 app.layout = dbc.Container([
     dbc.Row([
-        dbc.Col(controls, sm=6, md=5, lg=4, xl=3, xxl=2, align='center'),
-        dbc.Col(dcc.Graph(id='graph', style={'height': '100vh'}))
+        dbc.Col(controls, sm=6, md=5, lg=4, xl=3, xxl=2, align='center', style={'padding': '12px'}),
+        dbc.Col(dcc.Graph(id='graph', style={'height': '100vh'}), style={'padding': '0'})
     ])
 ], fluid=True)
 
@@ -293,9 +293,9 @@ def update_figure(
     fig.update_layout(
         showlegend=True if 'Show legend' in sel_legend else False,
         title_x=0.5,
-        margin=dict(t=50, r=30, pad=0),
+        margin=dict(t=40, r=20, l=64, b=60, pad=0),
         xaxis=dict(tickmode='array', tickvals=[10, 12, 16, 20, 24, 28, 35, 50, 70, 85, 100, 135, 150, 200, 250, 300, 400, 500, 600]),
-        yaxis=dict(tickmode='array', tickvals=[1, 1.4, 2, 2.8, 4, 5.6, 8, 11, 16]),
+        yaxis=dict(tickmode='array', tickvals=[1, 1.4, 2, 2.8, 4, 5.6, 8, 11, 16], automargin=True),
         transition_duration=500
     )
 
