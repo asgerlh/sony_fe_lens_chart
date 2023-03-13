@@ -187,6 +187,7 @@ controls = dbc.Card([
     ], style={'overflow-y': 'scroll', 'max-height': 'calc(100vh - 170px)'}),
     dbc.CardFooter([
         html.Div(['Data from ', html.A('phillipreeve.net', href="https://phillipreeve.net/blog/fe-list/", target='_blank')]),
+        html.Div(['Feature requests, bugs: ', html.A('github', href='https://github.com/asgerlh/sony_fe_lens_chart', target='_blank')]),
     ], style={'text-align': 'center'}),
 ])
 
